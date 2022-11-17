@@ -10,6 +10,7 @@ export default function Index() {
   const [size, setSize] = useState("S")
   const initialPrice = 299
   const [price, setPrice] = useState(initialPrice)
+  const [cartNumber, setCartNumber] = useState(5)
 
   const qnts = [1, 2, 3]
   const sizes = [{ s: "S", p: 299 }, { s: "M", p: 310 }, { s: "L", p: 350 }]
@@ -70,14 +71,14 @@ export default function Index() {
           </div>
           <div className="relative cursor-pointer">
             <FaRegClipboard size={25} />
-            <span className="absolute bottom-0 -right-2 min-w-5 min-h-5 text-[.8rem] py-[2px] px-2 rounded-full bg-[#f5c000] text-black">5</span>
+            <span className="absolute -bottom-2 lg:bottom-0 -right-2 min-w-5 min-h-5 text-[.8rem] py-[2px] px-2 rounded-full bg-[#f5c000] text-black">{cartNumber}</span>
           </div>
-          <FaBars size={25} onClick={() => { toggleModal(true) }} />
+          <FaBars size={25} onClick={() => { toggleModal(true) }} className="cursor-pointer" />
         </div>
       </nav>
 
-      <main className="flex flex-col md:flex-row w-full items-center pl-10 lg:pl-28">
-        <div className="flex-1 font-tw-cen-mt-condensed">
+      <main className="flex flex-col md:flex-row w-full justify-center items-center px-4 md:px-6 lg:px-28">
+        <div className="flex-1 font-tw-cen-mt-condensed mb-5 md:mb-0 z-[2]">
           <p className="text-[#f5c000] tracking-[5px] text-sm">NEW COLLECTION</p>
           <div className="text-white font-bold tracking-[5px] py-7 text-2xl">
             <p className="">NEW NIKE</p>
@@ -140,13 +141,14 @@ export default function Index() {
             <div className="ml-2 py-1 px-3 border-2 border-[#f5c000] text-[#f5c000] font-bold text-lg">${price}</div>
           </div>
         </div>
-        <div className="flex-1 lg:flex-[2]">
-          <Image src="/images/sneaker.png" alt="" width="900" height="500" className='-rotate-12' />
+        <div className="md:flex-1 lg:flex-[2]">
+          <div className="md:hidden"><Image src="/images/sneaker.png" alt="" width="300" height="200" /></div>
+          <div className="hidden md:block"><Image src="/images/sneaker.png" alt="" width="900" height="500" className='-rotate-12' /></div>
         </div>
       </main>
 
-      <div className="pl-10 lg:pl-28 flex justify-between items-end">
-        <div className="hidden md:flex flex-col justify-center items-center">
+      <div className="px-4 md:px-6 lg:px-28 flex justify-center md:justify-between items-end">
+        <div className="hidden md:flex flex-col items-center">
           <div className="flex justify-around">
             <div className="cursor-pointer"><Image src="/images/sneaker.png" alt="" width="50" height="50" /></div>
             <div className="cursor-pointer"><Image src="/images/sneaker.png" alt="" width="50" height="50" /></div>
@@ -161,7 +163,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="w-[300px] h-[50px] grid place-items-center bg-gray-700 font-bold text-[#f5c000] cursor-pointer">
+        <div className="w-[300px] h-[50px] grid place-items-center bg-gray-700 font-bold text-[#f5c000] cursor-pointer" onClick={() => { setCartNumber(cartNumber+1) }}>
           ADD TO CART
         </div>
       </div>
