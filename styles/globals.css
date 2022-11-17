@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .modal-menu-item{
+        @apply block relative p-[0.5rem] cursor-pointer
+        before:h-[14px] before:w-[14px] before:absolute before:content-[''] before:transition-all before:duration-[0.35s] before:ease-linear before:opacity-0
+        before:left-0 before:top-0 before:border-l before:border-solid before:border-[#f5c000] before:border-t before:translate-x-[100%] before:translate-y-[50%] before:filter
+        before:hover:translate-x-0 before:hover:translate-y-0 before:hover:opacity-100
+
+        after:h-[14px] after:w-[14px] after:absolute after:content-[''] after:transition-all after:duration-[0.35s] after:ease-linear after:opacity-0
+        after:right-0 after:bottom-0 after:border-r after:border-solid after:border-[#f5c000] after:border-b after:translate-x-[-100%] after:translate-y-[-50%] after:filter
+        after:hover:translate-x-0 after:hover:translate-y-0 after:hover:opacity-100
+    }
+}

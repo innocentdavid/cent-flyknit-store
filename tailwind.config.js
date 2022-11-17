@@ -6,7 +6,11 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'tw-cen-mt-condensed': ['tw-cen-mt-condensed']
+      }
+    },
   },
   plugins: [],
 }
